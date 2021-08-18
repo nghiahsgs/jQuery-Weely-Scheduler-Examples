@@ -1,0 +1,80 @@
+
+<!doctype html>
+<html>
+<head>
+  <link href="https://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css">
+  <link href="https://www.jqueryscript.net/demo/appointment-week-view-scheduler/css/doc.css" rel="stylesheet" />
+  <link href="https://www.jqueryscript.net/demo/appointment-week-view-scheduler/css/scheduler.css" rel="stylesheet" />
+</head>
+
+<body>
+
+  <div class="main">
+    <h1>jQuery Weely Scheduler Examples</h1>
+    <p>Basic Example</p>
+    <table id="test1"></table>
+    <div id="log" class="log"></div>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha384-nvAa0+6Qg9clwYCGGPpDQLVpLNn0fRaROjHqs13t4Ggj3Ez50XnGQqc/r8MhnRDZ" crossorigin="anonymous"></script>
+    <script src="https://www.jqueryscript.net/demo/appointment-week-view-scheduler/js/scheduler.js"></script>
+    <script>
+      function log(msg) {
+        $('#log').prepend('<p>' + ++log.line + ': ' + msg + '</p>');
+      }
+      log.line = 0;
+      $('#test1').scheduler({
+        accuracy: 1,
+        data: {
+          1: [1, 2, 3, 4],
+          2: [1, 2, 3, 4],
+        },
+        // onRender: function () {
+        //   log('Init');
+        // },
+        // onDragStart: function (d) {
+        //   log('Drag Start');
+        // },
+        // onDragMove: function (d) {
+        //   log('Drag Move');
+        // },
+        // onDragEnd: function (d) {
+        //   log('Drag End');
+        // },
+        // onSelect: function (d) {
+        //   log('Selected');
+        // }
+      });
+    </script>
+    
+    <!-- <h2>With Options</h2>
+    <section>
+      <h3>accuracy = 2</h3>
+      <table id="test3"></table>
+      <script>
+        $('#test3').scheduler({
+          accuracy: 2
+        });
+      </script>
+    </section> -->
+   
+   
+
+    
+  </div>
+
+</body>
+
+<script>
+
+    const list_active_cell = document.querySelectorAll('.scheduler-active')
+    let result = []
+    list_active_cell.forEach(cell => {
+        result = [...result,{
+            i_row:cell.getAttribute('data-row'),
+            i_col:cell.getAttribute('data-col')
+        }]
+    })
+
+    console.log({result})
+    
+</script>
+</html>
